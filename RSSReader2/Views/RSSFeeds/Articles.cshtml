@@ -1,0 +1,61 @@
+﻿@model IEnumerable<RSSReader2.Models.Article>
+
+@{
+    ViewData["Title"] = "Články";
+}
+
+<h1>Články</h1>
+<!--
+<form asp-controller="RSSFeeds" asp-action="Articles" method="get">
+    <p>
+        Datum od: <input type="text" name="dateFrom" id="datepicker"/>
+        Datum do: <input type="text" name="dateTo" id="datepicker" />
+        <input type="submit" value="Filtrovat" />
+    </p>
+</form>-->
+<form asp-controller="RSSFeeds" asp-action="Articles" method="get">
+    <p>
+        Název: <input type="text" name="searchString" />
+        <input type="submit" value="Filtrovat" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                 @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                 @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                 @Html.DisplayNameFor(model => model.Link)
+            </th>
+            <th>
+                 @Html.DisplayNameFor(model => model.PubDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@if(ViewData["Articles"] != null){
+    foreach (var item in ViewData["Articles"] as IEnumerable<RSSReader2.Models.Article>) {
+        <tr>
+            <td>
+                @item.Title
+            </td>
+            <td>
+                @item.Description
+            </td>
+            <td> <a href=@item.Link>
+                @item.Link</a>
+            </td>
+            <td>
+                @item.PubDate
+            </td>           
+        </tr>
+    }  
+}
+    </tbody>
+</table>
