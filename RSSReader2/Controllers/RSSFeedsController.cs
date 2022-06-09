@@ -202,8 +202,6 @@ namespace RSSReader2.Controllers
             var rSSFeed = await _context.RSSFeed.Include(a => a.Articles)
                 .FirstOrDefaultAsync(m => m.Id == id);
             
-
-
             if (rSSFeed == null)
             {
                 return NotFound();
@@ -264,15 +262,17 @@ namespace RSSReader2.Controllers
                 }
                 if ((string)x.Element("pubDate") != null)
                 {
-                    article.PubDate = ((string)x.Element("pubDate"));
+                    article.PubDate = DateTime.Parse((string)x.Element("pubDate"));
                 }
-                else
+                /*else
                 {
                     article.PubDate = "Neuvedeno";
-                }
+                }*/
                 Articles.Add(article);
             }
             return Articles;
-        } 
+        }
+        
+        
     }
 }

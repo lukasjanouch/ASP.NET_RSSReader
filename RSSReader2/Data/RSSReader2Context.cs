@@ -16,5 +16,6 @@ namespace RSSReader2.Data
 
         public DbSet<RSSReader2.Models.RSSFeed>? RSSFeed { get; set; }
         public DbSet<RSSReader2.Models.Article>? Article { get; set; }
+        
     }
 }

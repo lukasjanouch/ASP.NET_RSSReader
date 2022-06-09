@@ -13,6 +13,14 @@
         <input type="submit" value="Filtrovat" />
     </p>
 </form>-->
+
+<div class="row">
+        @Html.TextBox("start", null, new { @class = ".datepicker" }) 
+    </div>
+    <div class="row">
+        @Html.TextBox("end", null, new { @class = ".datafield" }) 
+    </div>  
+
 <form asp-controller="RSSFeeds" asp-action="Articles" method="get">
     <p>
         Název: <input type="text" name="searchString" />
@@ -50,10 +58,14 @@
             </td>
             <td> <a href=@item.Link>
                 @item.Link</a>
-            </td>
-            <td>
-                @item.PubDate
-            </td>           
+            </td>            
+                @if(@item.PubDate != null){
+                        <td>@item.PubDate</td>
+                    }
+                    else
+                    {
+                        <td>Neuvedeno</td>
+                    }                       
         </tr>
     }  
 }
