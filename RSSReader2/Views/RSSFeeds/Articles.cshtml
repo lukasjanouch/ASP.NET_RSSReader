@@ -12,7 +12,9 @@
         Datum do: <input type="text" name="dateTo" id="datepicker" />
         <input type="submit" value="Filtrovat" />
     </p>
-</form>--> 
+</form>-->
+
+@await Html.PartialAsync("PartialDateFilter.cshtml")
 
 <form asp-controller="RSSFeeds" asp-action="Articles" method="get">
     <p>

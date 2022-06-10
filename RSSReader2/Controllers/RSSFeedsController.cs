@@ -192,7 +192,7 @@ namespace RSSReader2.Controllers
         }
 
         // GET: RSSFeeds/Articles/5
-        public async Task<IActionResult> Articles(int? id, string searchString)
+        public async Task<IActionResult> Articles(int? id, string searchString, string dateFrom, string dateTo)
         {
             if (id == null || _context.RSSFeed == null)
             {
@@ -210,7 +210,19 @@ namespace RSSReader2.Controllers
             var articles = rSSFeed.Articles;
 
             IEnumerable<Article> articlesEnumerable = rSSFeed.Articles;
-            if (!String.IsNullOrEmpty(searchString))
+            if (!String.IsNullOrEmpty(dateFrom) && !String.IsNullOrEmpty(dateTo))
+            {
+                articles = new List<Article>();
+                articlesEnumerable = articlesEnumerable
+                    .Where(s => s.PubDate >= DateTime.Parse(dateFrom) && s.PubDate <= DateTime.Parse(dateTo));
+                foreach (var article in articlesEnumerable)
+                {
+                    articles.Add(article);
+                }
+            }
+
+
+                if (!String.IsNullOrEmpty(searchString))
             {
                 articles = new List<Article>();
                 articlesEnumerable = articlesEnumerable.Where(s => s.Title!.Contains(searchString));
