@@ -5,23 +5,11 @@
 }
 
 <h1>Články</h1>
-<!--
-<form asp-controller="RSSFeeds" asp-action="Articles" method="get">
-    <p>
-        Datum od: <input type="text" name="dateFrom" id="datepicker"/>
-        Datum do: <input type="text" name="dateTo" id="datepicker" />
-        <input type="submit" value="Filtrovat" />
-    </p>
-</form>-->
+
 
 @await Html.PartialAsync("PartialDateFilter.cshtml")
 
-<form asp-controller="RSSFeeds" asp-action="Articles" method="get">
-    <p>
-        Název: <input type="text" name="searchString" />
-        <input type="submit" value="Filtrovat" />
-    </p>
-</form>
+
 
 <table class="table">
     <thead>

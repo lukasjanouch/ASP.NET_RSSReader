@@ -192,7 +192,7 @@ namespace RSSReader2.Controllers
         }
 
         // GET: RSSFeeds/Articles/5
-        public async Task<IActionResult> Articles(int? id, string searchString, string dateFrom, string dateTo)
+        public async Task<IActionResult> Articles(int? id, string dateFrom, string dateTo)
         {
             if (id == null || _context.RSSFeed == null)
             {
@@ -220,18 +220,7 @@ namespace RSSReader2.Controllers
                     articles.Add(article);
                 }
             }
-
-
-                if (!String.IsNullOrEmpty(searchString))
-            {
-                articles = new List<Article>();
-                articlesEnumerable = articlesEnumerable.Where(s => s.Title!.Contains(searchString));
-                foreach(var article in articlesEnumerable)
-                {
-                    articles.Add(article);
-                }
-            }
-
+           
             ViewData["Articles"] = articles;
             return View();
             
