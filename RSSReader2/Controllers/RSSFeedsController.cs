@@ -33,10 +33,10 @@ namespace RSSReader2.Controllers
                 items = items.Where(s => s.Name!.Contains(searchString));
             }
 
-            return View(await items.ToListAsync());
-            /*return _context.RSSFeed != null ? 
-                        View(await _context.RSSFeed.ToListAsync()) :
-                        Problem("Entity set 'RSSReader2Context.RSSFeed'  is null.");*/
+           // return View(await items.ToListAsync());
+            return items != null ? 
+                        View(await items.ToListAsync()) :
+                        Problem("Entity set 'RSSReader2Context.RSSFeed'  is null.");
         }
 
         // GET: RSSFeeds/Details/5

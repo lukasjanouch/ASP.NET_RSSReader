@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RSSReader2.Data;
 
@@ -11,9 +12,10 @@ using RSSReader2.Data;
 namespace RSSReader2.Migrations
 {
     [DbContext(typeof(RSSReader2Context))]
-    partial class RSSReader2ContextModelSnapshot : ModelSnapshot
+    [Migration("20220614172038_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
