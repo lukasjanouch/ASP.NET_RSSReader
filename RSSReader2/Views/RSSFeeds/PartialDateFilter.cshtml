@@ -5,6 +5,8 @@ Od: @Html.TextBox("dateFrom", String.Format("{0:d}", Model.ToShortDateString()),
   new { @class = "datefield", type = "date" })  
 Do: @Html.TextBox("dateTo", String.Format("{0:d}", Model.ToShortDateString()),
   new { @class = "datefield", type = "date" })
-  <input type="submit" value="Filtrovat" />
+  <button class="btn btn-primary" type="submit" >
+            <i class="bi bi-filter"></i> &nbsp; Filtrovat
+  </button>
   </p>
 </form>

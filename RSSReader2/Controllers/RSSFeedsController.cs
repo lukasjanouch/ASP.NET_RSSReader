@@ -94,9 +94,10 @@ namespace RSSReader2.Controllers
 
             if (ModelState.IsValid)
             {
-                _context.Add(rSSFeed);
+                _context.RSSFeed.Add(rSSFeed);//přidáno .RSSFeed
                 await _context.SaveChangesAsync();
                 //System.Diagnostics.Debug.WriteLine(rSSFeed.Articles.Count);
+                TempData["success"] = "RSS feed byl úspěšně vytvořen.";
                 return RedirectToAction(nameof(Index));
                 
             }
@@ -112,6 +113,9 @@ namespace RSSReader2.Controllers
             }
 
             var rSSFeed = await _context.RSSFeed.FindAsync(id);
+            //var rSSFeedFirst = await _context.RSSFeed.FirstOrDefaultAsync(u => u.Id == id);
+            //var rSSFeedSingle = await _context.RSSFeed.SingleOrDefaultAsync(u => u.Id == id);
+
             if (rSSFeed == null)
             {
                 return NotFound();
@@ -135,7 +139,7 @@ namespace RSSReader2.Controllers
             {
                 try
                 {
-                    _context.Update(rSSFeed);
+                    _context.RSSFeed.Update(rSSFeed);//přidáno .RSSFeed
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -149,6 +153,7 @@ namespace RSSReader2.Controllers
                         throw;
                     }
                 }
+                TempData["success"] = "RSS feed byl úspěšně upraven.";
                 return RedirectToAction(nameof(Index));
             }
             return View(rSSFeed);
@@ -188,6 +193,7 @@ namespace RSSReader2.Controllers
             }
             
             await _context.SaveChangesAsync();
+            TempData["success"] = "RSS feed byl úspěšně smazán.";
             return RedirectToAction(nameof(Index));
         }
 
@@ -225,6 +231,58 @@ namespace RSSReader2.Controllers
             return View();
             
         }
+        // GET: RSSFeeds/Reload/5
+        public async Task<IActionResult> Reload(int? id)
+        {
+            if (id == null || _context.RSSFeed == null)
+            {
+                return NotFound();
+            }
+
+            var rSSFeed = await _context.RSSFeed
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (rSSFeed == null)
+            {
+                return NotFound();
+            }
+
+            return View(rSSFeed);
+        }
+
+        // POST: RSSFeeds/Reload/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Reload(int id)
+        {
+            if (_context.RSSFeed == null)
+            {
+                return Problem("Entity set 'RSSReader2Context.RSSFeed'  is null.");
+            }
+            var rSSFeed = await _context.RSSFeed.Include(a => a.Articles).FirstOrDefaultAsync(m => m.Id == id);
+
+            if (rSSFeed != null && rSSFeed.Articles != null)
+            {
+                //_context.RSSFeed.Remove(rSSFeed);
+                
+                foreach(var article in rSSFeed.Articles)
+                { 
+                        _context.Article.Remove(article);
+                }
+                WebClient wclient = new WebClient();
+                string RSSData = wclient.DownloadString(rSSFeed.Url);
+                XDocument xml = XDocument.Parse(RSSData);
+
+                ICollection<Article> Articles = GetArticlesFromXml(xml);
+                
+                rSSFeed.Articles = Articles;
+                
+            }
+            
+            await _context.SaveChangesAsync();
+            TempData["success"] = "Nové články byly úspěšně načteny.";
+            return RedirectToAction(nameof(Articles), new {id = id});
+        }
+
 
         private bool RSSFeedExists(int id)
         {
@@ -274,6 +332,7 @@ namespace RSSReader2.Controllers
             return Articles;
         }
         
-        
+
+
     }
 }

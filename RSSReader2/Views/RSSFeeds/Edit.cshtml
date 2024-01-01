@@ -24,14 +24,18 @@
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Uložit" class="btn btn-primary" />
+                <button type="submit" class="btn btn-primary" style="margin-top: 5px">
+                    <i class="bi bi-box-arrow-down"></i> &nbsp; Uložit
+                </button>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Zpátky na seznam feedů</a>
+    <a class="btn btn-secondary" asp-action="Index" style="margin-top: 5px">
+        <i class="bi bi-back"></i> &nbsp; Zpět na seznam feedů
+    </a>
 </div>
 
 @section Scripts {

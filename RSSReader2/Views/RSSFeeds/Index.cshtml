@@ -4,16 +4,22 @@
     ViewData["Title"] = "RSS feedy";
 }
 
+
+
 <h1>RSS feedy</h1>
 
 <p>
-    <a asp-action="Create">Přidat nový</a>
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="bi bi-file-plus"></i> &nbsp; Přidat nový <!--non-braking space - nedělitelná mezera (nerozdělí se na 2 řádky)-->
+    </a>
 </p>
 
 <form asp-controller="RSSFeeds" asp-action="Index" method="get">
     <p>
         Název: <input type="text" name="searchString" />
-        <input type="submit" value="Filtrovat" />
+        <button type="submit" class="btn btn-primary">
+            <i class="bi bi-filter"></i> &nbsp; Filtrovat
+        </button>
     </p>
 </form>
 
@@ -42,12 +48,21 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                <a asp-action="Articles" asp-route-id="@item.Id">Články</a> 
+                <a class="btn btn-primary" asp-action="Articles" asp-route-id="@item.Id">
+                        <i class="bi bi-list-columns-reverse"></i> &nbsp; Články
+                    </a>
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Upravit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detaily</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Smazat</a>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">
+                        <i class="bi bi-pencil-square"></i> &nbsp; Upravit
+                </a>
+                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">
+                        <i class="bi bi-info-square"></i> &nbsp; Detaily
+                </a>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">
+                        <i class="bi bi-file-x"></i> &nbsp; Smazat
+                </a> 
+
             </td>
         </tr>
 }

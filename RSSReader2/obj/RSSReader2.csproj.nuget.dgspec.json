@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\uživatel\\source\\repos\\RSSReader2\\RSSReader2\\RSSReader2.csproj": {}
+    "C:\\Users\\Owner\\source\\repos\\ASP.NET_RSSReader\\RSSReader2\\RSSReader2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\uživatel\\source\\repos\\RSSReader2\\RSSReader2\\RSSReader2.csproj": {
+    "C:\\Users\\Owner\\source\\repos\\ASP.NET_RSSReader\\RSSReader2\\RSSReader2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\uživatel\\source\\repos\\RSSReader2\\RSSReader2\\RSSReader2.csproj",
+        "projectUniqueName": "C:\\Users\\Owner\\source\\repos\\ASP.NET_RSSReader\\RSSReader2\\RSSReader2.csproj",
         "projectName": "RSSReader2",
-        "projectPath": "C:\\Users\\uživatel\\source\\repos\\RSSReader2\\RSSReader2\\RSSReader2.csproj",
-        "packagesPath": "C:\\Users\\uživatel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\uživatel\\source\\repos\\RSSReader2\\RSSReader2\\obj\\",
+        "projectPath": "C:\\Users\\Owner\\source\\repos\\ASP.NET_RSSReader\\RSSReader2\\RSSReader2.csproj",
+        "packagesPath": "C:\\Users\\Owner\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Owner\\source\\repos\\ASP.NET_RSSReader\\RSSReader2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\uživatel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -58,7 +62,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.16, )"
             },
             "jQuery.UI.Widgets.Datepicker": {
               "target": "Package",
@@ -71,7 +75,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -83,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

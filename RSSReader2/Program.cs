@@ -1,12 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using RSSReader2.Data;
+
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<RSSReader2Context>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("RSSReader2Context") ?? throw new InvalidOperationException("Connection string 'RSSReader2Context' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<RSSReader2Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("RSSReader2Context") ?? throw new InvalidOperationException("Connection string 'RSSReader2Context' not found.")));
+//builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+
 
 var app = builder.Build();
 

@@ -2,10 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\RSSReader2",
+    "\\RSSReader2\\bin",
+    "\\RSSReader2\\Controllers",
     "\\RSSReader2\\Data",
-    "\\RSSReader2\\Migrations",
-    "\\RSSReader2\\Models"
+    "\\RSSReader2\\Views",
+    "\\RSSReader2\\Views\\RSSFeeds",
+    "\\RSSReader2\\Views\\Shared"
   ],
-  "SelectedNode": "\\RSSReader2.sln",
+  "SelectedNode": "\\RSSReader2\\Views\\RSSFeeds\\Details.cshtml",
   "PreviewInSolutionExplorer": false
 }

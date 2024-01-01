@@ -27,7 +27,11 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Smazat" class="btn btn-danger" /> |
-        <a asp-action="Index">Zpátky na seznam feedů</a>
+        <button type="submit" class="btn btn-danger">
+            <i class="bi bi-file-x"></i> &nbsp; Smazat
+        </button> 
+        <a class="btn btn-secondary" asp-action="Index">
+            <i class="bi bi-back"></i> &nbsp; Zpět na seznam feedů
+        </a>
     </form>
 </div>
