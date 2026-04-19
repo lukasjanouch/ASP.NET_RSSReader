@@ -10859,19 +10859,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Owner\\.nuget\\packages\\": {}
+    "C:\\Users\\janou\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Owner\\source\\repos\\ASP.NET_RSSReader\\RSSReader2\\RSSReader2.csproj",
+      "projectUniqueName": "C:\\Users\\janou\\Source\\Repos\\ASP.NET_RSSReader\\RSSReader2\\RSSReader2.csproj",
       "projectName": "RSSReader2",
-      "projectPath": "C:\\Users\\Owner\\source\\repos\\ASP.NET_RSSReader\\RSSReader2\\RSSReader2.csproj",
-      "packagesPath": "C:\\Users\\Owner\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Owner\\source\\repos\\ASP.NET_RSSReader\\RSSReader2\\obj\\",
+      "projectPath": "C:\\Users\\janou\\Source\\Repos\\ASP.NET_RSSReader\\RSSReader2\\RSSReader2.csproj",
+      "packagesPath": "C:\\Users\\janou\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\janou\\Source\\Repos\\ASP.NET_RSSReader\\RSSReader2\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\janou\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10891,7 +10896,13 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net6.0": {
@@ -10945,7 +10956,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   }
